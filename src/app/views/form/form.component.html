@@ -1,0 +1,280 @@
+<div class="container">
+  <h2>Form</h2>
+
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="row">
+    <div class="col-6">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          class="form-control"
+          [ngModel]
+          name="name"
+          required
+          #name="ngModel"
+        />
+        <span
+          *ngIf="name.invalid && (name.dirty || name.touched)"
+          class="text-danger"
+        >
+          <div *ngIf="name.errors?.['required']">Name is required.</div>
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input
+          type="number"
+          class="form-control"
+          [ngModel]="formModel.age"
+          name="age"
+          required
+          #age="ngModel"
+        />
+        <span
+          *ngIf="age.invalid && (age.dirty || age.touched)"
+          class="text-danger"
+        >
+          <div *ngIf="age.errors?.['required']">Age is required.</div>
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Address</label>
+        <input
+          class="form-control"
+          [ngModel]
+          name="address"
+          required
+          #address="ngModel"
+        />
+        <span
+          *ngIf="address.invalid && (address.dirty || address.touched)"
+          class="text-danger"
+        >
+          <div *ngIf="address.errors?.['required']">Address is required.</div>
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="name">Phonenumber</label>
+        <input
+          class="form-control"
+          [ngModel]
+          name="phonenumber"
+          required
+          #phonenumber="ngModel"
+        />
+        <span
+          *ngIf="
+            phonenumber.invalid && (phonenumber.dirty || phonenumber.touched)
+          "
+          class="text-danger"
+        >
+          <div *ngIf="phonenumber.errors?.['required']">
+            Phonenumber is required.
+          </div>
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="name">Email</label>
+        <input
+          class="form-control"
+          [ngModel]
+          name="email"
+          required
+          #email="ngModel"
+        />
+        <span
+          *ngIf="email.invalid && (email.dirty || email.touched)"
+          class="text-danger"
+        >
+          <div *ngIf="email.errors?.['required']">Email is required.</div>
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label>Gender</label>
+        <div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              name="gender_encoded"
+              [(ngModel)]="formModel.gender_encoded"
+              value="1"
+              required
+            />
+            <label class="form-check-label">Male</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              name="gender"
+              [(ngModel)]="formModel.gender_encoded"
+              value="0"
+              required
+            />
+            <label class="form-check-label">Female</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Do you eat a lot of sugar?</label>
+        <div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              name="sugar"
+              [ngModel]
+              value="1"
+              required
+            />
+            <label class="form-check-label">Yes</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              name="sugar"
+              [ngModel]
+              value="0"
+              required
+            />
+            <label class="form-check-label">No</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="form-group">
+        <label>Hypertension</label>
+        <div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              name="hypertension"
+              [(ngModel)]="formModel.hypertension"
+              value="1"
+              required
+            />
+            <label class="form-check-label">Yes</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              name="hypertension"
+              [(ngModel)]="formModel.hypertension"
+              value="0"
+              required
+            />
+            <label class="form-check-label">No</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Heart disease</label>
+        <div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              name="heart_disease"
+              [(ngModel)]="formModel.heart_disease"
+              value="1"
+              required
+            />
+            <label class="form-check-label">Yes</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              name="heart_disease"
+              [(ngModel)]="formModel.heart_disease"
+              value="0"
+              required
+            />
+            <label class="form-check-label">No</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="smoking_history_encoded">Smoking history</label>
+        <select
+          class="form-control"
+          name="smoking_history_encoded"
+          [(ngModel)]="formModel.smoking_history_encoded"
+          required
+        >
+          <option value="0">No Info</option>
+          <option value="4">Never</option>
+          <option value="5">Not Current</option>
+          <option value="3">Former</option>
+          <option value="2">Ever</option>
+          <option value="1">Current</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="bmi">BMI</label>
+        <input
+          type="number"
+          class="form-control"
+          [ngModel]="formModel.bmi"
+          name="bmi"
+          required
+          #bmi="ngModel"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="HbA1c_level">HbA1c level</label>
+        <input
+          type="number"
+          class="form-control"
+          [ngModel]="formModel.HbA1c_level"
+          name="HbA1c_level"
+          required
+          #HbA1c_level="ngModel"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="blood_glucose_level">Blood glucose level</label>
+        <input
+          type="number"
+          class="form-control"
+          [ngModel]="formModel.HbA1c_level"
+          name="blood_glucose_level"
+          required
+          #blood_glucose_level="ngModel"
+        />
+      </div>
+    </div>
+
+    <div class="row justify-content-end">
+      <div class="col">
+        <button
+          class="btn btn-primary btn-sm m-2"
+          type="submit"
+          [disabled]="
+            !f.valid ||
+            !formModel.gender_encoded ||
+            !formModel.hypertension ||
+            !formModel.heart_disease ||
+            !formModel.smoking_history_encoded
+          "
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

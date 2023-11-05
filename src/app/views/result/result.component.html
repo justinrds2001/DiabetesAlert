@@ -1,0 +1,33 @@
+<div class="prediction-container">
+  <h2>Prediction Result</h2>
+  <div class="prediction-result">
+    <strong>
+      {{
+        prediction.diabetes
+          ? "You most likely have Diabetes."
+          : "You most likely do not have Diabetes."
+      }}
+    </strong>
+  </div>
+  <div class="prediction-image">
+    <h4>Advice</h4>
+    <p *ngIf="prediction.diabetes">
+      Based on the prediction, we recommend that you buy our top tier
+      Glipizide-Metformin tablets for keeping your blood-sugar in check! Get
+      them
+      <a href="https://www.healthwarehouse.com/pharmacy/condition/diabetes"
+        >here</a
+      >!
+    </p>
+    <p *ngIf="!prediction.diabetes">
+      Based on the prediction, you are unlikely to have diabetes. However, we
+      recommend that buy our top tier Glipizide-Metformin tablets for keeping
+      your blood-sugar in check just in case! Get them
+      <a href="https://www.healthwarehouse.com/pharmacy/condition/diabetes"
+        >here</a
+      >!
+    </p>
+    <p>Please use the promo code "DiaBeat" for a 10% discount.</p>
+  </div>
+  <a class="btn btn-secondary" routerLink="/home">Go back</a>
+</div>
